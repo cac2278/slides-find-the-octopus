@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -397,6 +398,61 @@ body:has(.slide.active.research-timer-slide) .controls{
 .orientation-slide .go-find{border:none!important;background:rgba(255,255,255,.10)!important;padding:.65em 1.05em!important;margin:2vh auto 7vh!important;border-radius:12px!important}
 .orientation-slide .bottom{border-top:none!important}
 
+
+/* V1.15 — Slide 3 giant Quest launch QR */
+.quest-launch{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(300px,35vw);
+  gap:3.2vw;
+  align-items:center;
+  flex:1;
+  min-height:0;
+}
+.quest-launch-copy p{max-width:760px}
+.quest-qr-wrap{
+  justify-self:end;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.65vh;
+}
+.quest-qr{
+  width:min(35vw,52vh);
+  height:min(35vw,52vh);
+  background:#fff;
+  padding:14px;
+  border-radius:18px;
+  box-shadow:0 14px 38px rgba(0,0,0,.22);
+  image-rendering:pixelated;
+}
+.quest-qr-label{
+  color:#fff;
+  font-weight:900;
+  font-size:clamp(18px,1.6vw,25px);
+  text-align:center;
+}
+.quest-qr-url{
+  color:#e9dcf5;
+  font-size:clamp(10px,.8vw,13px);
+  text-align:center;
+}
+.timer-slide .timer-panel{
+  max-width:620px;
+  margin:1.2vh 0 0;
+  padding:.8vw 1.05vw;
+}
+.timer-slide .timer-display{font-size:clamp(42px,5.4vw,76px)}
+.timer-slide .timer-label{margin:.15em 0 .5em}
+.timer-slide .timer-btn{font-size:clamp(11px,.9vw,15px);padding:.5em .75em}
+@media(max-width:760px){
+  .quest-launch{grid-template-columns:1fr}
+  .quest-qr-wrap{justify-self:center}
+  .quest-qr{width:min(52vw,38vh);height:min(52vw,38vh)}
+}
+@media print{
+  .quest-qr{width:3.55in;height:3.55in}
+}
+
 </style>
 </head>
 <body>
@@ -435,18 +491,26 @@ body:has(.slide.active.research-timer-slide) .controls{
 
 <section class="slide hero timer-slide">
   <div class="topline">Explore Lenox · Your First Quest</div>
-  <h1>Ready? Go explore.</h1>
-  <p>You have <strong>10 minutes</strong> to complete your team's Explore missions. Bring what you discover back to Base.</p>
-  <div class="timer-panel" id="exploreTimerPanel">
-    <div class="timer-display" id="exploreTimerDisplay">10:00</div>
-    <div class="timer-label" id="exploreTimerLabel">Timer has not started.</div>
-    <div class="timer-actions">
-      <button class="timer-btn" type="button" onclick="timerStart('explore');event.stopPropagation()">START 10 MINUTES</button>
-      <button class="timer-btn secondary" type="button" onclick="timerPause('explore');event.stopPropagation()">PAUSE</button>
-      <button class="timer-btn secondary" type="button" onclick="timerReset('explore');event.stopPropagation()">RESET</button>
+  <div class="quest-launch">
+    <div class="quest-launch-copy">
+      <h1>Scan. Join your team.<br>Go explore.</h1>
+      <p>Scan the QR code to open the <strong>Lenox Library Quest</strong>. You have <strong>10 minutes</strong> to complete your team's Explore missions.</p>
+      <div class="timer-panel" id="exploreTimerPanel">
+        <div class="timer-display" id="exploreTimerDisplay">10:00</div>
+        <div class="timer-label" id="exploreTimerLabel">Timer has not started.</div>
+        <div class="timer-actions">
+          <button class="timer-btn" type="button" onclick="timerStart('explore');event.stopPropagation()">START 10 MINUTES</button>
+          <button class="timer-btn secondary" type="button" onclick="timerPause('explore');event.stopPropagation()">PAUSE</button>
+          <button class="timer-btn secondary" type="button" onclick="timerReset('explore');event.stopPropagation()">RESET</button>
+        </div>
+      </div>
+    </div>
+    <div class="quest-qr-wrap">
+      <img class="quest-qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fcac2278.github.io%2Fapp-find-the-octopus%2F&size=700&margin=2&ecLevel=H" alt="QR code to open the Lenox Library Quest" />
+      <div class="quest-qr-label">SCAN TO START THE QUEST</div>
+      <div class="quest-qr-url">https://cac2278.github.io/app-find-the-octopus/</div>
     </div>
   </div>
-  <div class="bigemoji">🐙</div>
   <div class="bottom" style="color:#e9dcf5"><span>Explore Quest · Return here when time is up</span><span>3 / 13</span></div>
 </section>
 
