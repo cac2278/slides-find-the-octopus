@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Great Lenox Library Octopus Hunt — Research Mini-Lesson V1.18</title>
+<title>The Great Lenox Library Octopus Hunt — Research Mini-Lesson V1.19</title>
 <style>
 :root{
   --purple:#563184;--purple2:#7447a6;--lav:#f3edf8;--ink:#211a2d;
@@ -504,6 +504,80 @@ p,li{font-size:clamp(23px,2.25vw,34px);line-height:1.28}
 }
 .quest-launch-copy p{
   font-size:clamp(24px,2.25vw,34px)!important;
+}
+
+
+/* V1.19 — fullscreen fit fix: preserve larger readable type without clipping */
+.slide{
+  height:100dvh!important;
+  min-height:0!important;
+  padding-top:clamp(22px,4vh,48px)!important;
+  padding-bottom:clamp(54px,7vh,76px)!important;
+}
+.slide.active{overflow:hidden!important}
+
+/* Let dense content compress vertically rather than fall below the viewport. */
+.answer-grid{gap:clamp(8px,1vh,14px)!important}
+.answer{padding:clamp(12px,1.4vh,20px) clamp(16px,1.2vw,24px)!important}
+.pause{
+  margin-top:clamp(8px,1.2vh,16px)!important;
+  padding:clamp(12px,1.5vh,18px) clamp(16px,1.2vw,24px)!important;
+}
+.debrief-slide .debrief-grid{
+  margin-top:clamp(6px,.8vh,12px)!important;
+  gap:clamp(7px,.8vh,12px)!important;
+}
+.debrief-slide .move{
+  padding:clamp(9px,1vh,14px) clamp(12px,1vw,18px)!important;
+}
+.debrief-slide .move h3{margin:.1em 0!important}
+.debrief-slide .move p{margin:.12em 0!important;line-height:1.2!important}
+.live-capture{margin-top:clamp(7px,1vh,12px)!important}
+.debrief-slide .live-capture textarea{min-height:clamp(80px,13vh,130px)!important}
+.debrief-final .sendoff{margin-top:clamp(8px,1vh,14px)!important}
+.debrief-final .sendoff-card{padding:clamp(12px,1.3vh,18px) clamp(15px,1.1vw,22px)!important}
+.debrief-final .sendoff-card h2{margin:.18em 0 .28em!important}
+.debrief-final .sendoff-card p{margin:.22em 0!important;line-height:1.22!important}
+
+/* Slide 3 QR/timer: keep the giant QR, but cap it by available viewport height. */
+.quest-launch{gap:2.4vw!important}
+.quest-qr{
+  width:min(32vw,45vh)!important;
+  height:min(32vw,45vh)!important;
+}
+.timer-slide .timer-panel{margin-top:.7vh!important}
+
+/* Slides 6–10: tighten only spacing, not font sizes. */
+.keyword-row{margin-top:1vh!important}
+.syn{margin-top:2.2vh!important}
+.andviz{margin:2.8vh 0!important}
+.scholar-slide .scholar{gap:1.4vw!important}
+.scholar-slide .result-card,.scholar-slide .card{padding:clamp(12px,1.2vw,18px)!important}
+
+/* Footer remains inside the viewport. */
+.bottom{
+  bottom:clamp(8px,1.4vh,16px)!important;
+  padding-top:.55vh!important;
+}
+
+/* Short-height projector/laptop fullscreen safety net. */
+@media (max-height:760px){
+  .slide{
+    padding-top:20px!important;
+    padding-bottom:52px!important;
+  }
+  p,li{line-height:1.2!important}
+  .pause{line-height:1.2!important}
+  .service-strip{margin:1.2vh 0!important}
+  .orientation-slide .go-find{margin:1vh auto 4.5vh!important}
+  .question{margin:.7vh 0!important}
+  .syn{margin-top:1.2vh!important}
+  .andviz{margin:1.6vh 0!important}
+  .debrief-slide .live-capture textarea{min-height:72px!important}
+  .quest-qr{
+    width:min(29vw,40vh)!important;
+    height:min(29vw,40vh)!important;
+  }
 }
 
 </style>
